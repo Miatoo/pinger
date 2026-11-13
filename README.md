@@ -4,6 +4,7 @@
 # Pinger v1.0.1beta
 
 把 Android 手机变成一块「快捷键面板」：在 Photoshop、剪辑等软件里，用手机按键、旋钮代替键盘快捷键。
+<img width="1760" height="812" alt="07" src="https://github.com/user-attachments/assets/391f8fb1-7794-4818-a74c-affa94693589" />
 
 **语言** [中文](#zh) · [English](#en)
 
