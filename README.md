@@ -1,26 +1,34 @@
 <a id="top"></a>
 <a id="zh"></a>
 
-# Pinger v1.0.1beta
+# Pinger v1.0.2beta
 
 把 Android 手机变成一块「快捷键面板」：在 Photoshop、剪辑等软件里，用手机按键、旋钮代替键盘快捷键。
-<img width="1760" height="812" alt="07" src="https://github.com/user-attachments/assets/391f8fb1-7794-4818-a74c-affa94693589" />
 
 **语言** [中文](#zh) · [English](#en)
 
 **下载** [官网](https://www.aitocg.cn/pinger) · [GitHub Releases](https://github.com/Miatoo/pinger/releases)
 
+## 本版更新（相对 v1.0.1beta）
+
+- Spec 皮肤按键文字居中；十字键四向标签对齐
+- 快捷键设置：十字键展开为 D1–D4 四个独立绑定（与四向文字一致）
+- 布局编辑：移动 / 缩放 / 旋转后，文字、触控与滑条填充跟随键体
+- 旋钮布局旋转后，指针仍绕正确中心转动
+- 粗野 / 纸白等皮肤命中区与视觉对齐；布局工具栏更紧凑
+- iOS：已连但不出字问题（键盘-only 描述符，不再发 gamepad 报告）
+- 新增预设：Procreate (iPad)、剪映专业版、After Effects、CLIP STUDIO v2
+
 ## 下载哪个文件
 
 | 文件 | 装在哪 | 说明 |
 | --- | --- | --- |
-| **Pinger-v1.0.1beta.apk** | Android 手机 | 主程序（必装） |
-| **PingerSettings-v1.0.1beta-windows-x64.zip** | Windows 电脑 | 改排版、快捷键同步；WiFi 模式时代按键（可选） |
-| **SHA256SUMS.txt** | — | 安装包校验码（可选，核对下载是否完整） |
+| **Pinger-v1.0.2beta.apk** | Android 手机 | 主程序（必装） |
+| **SHA256SUMS.txt** | — | 安装包校验码（可选） |
 
-> **推荐组合**：只装手机 APK，用蓝牙连电脑。
+> **推荐**：只装手机 APK，用蓝牙连电脑。
 >
-> 蓝牙不好用时，再解压并打开电脑端 Pinger Settings，手机改用 WiFi。
+> 电脑端 **Pinger Settings**（改排版 / WiFi）本包未重打；可继续使用 [v1.0.1beta](../v1.0.1beta/) 的 Settings zip。
 
 ## 先看：已知限制
 
@@ -34,15 +42,13 @@
 
 ### 手机（Pinger）
 
-1. 把 `Pinger-v1.0.1beta.apk` 传到手机并安装（需允许「未知来源」）。
+1. 把 `Pinger-v1.0.2beta.apk` 传到手机并安装（需允许「未知来源」）。
 2. 若之前装过旧版，可直接覆盖；若提示签名冲突，先卸载旧版再装。
 3. 打开 App，允许**蓝牙**权限；建议**横屏**使用。
 
 ### 电脑（Pinger Settings，可选）
 
-1. 解压 `PingerSettings-v1.0.1beta-windows-x64.zip`。
-2. 运行文件夹内的 `PingerSettings.exe`（便携版，自带运行环境）。
-3. 防火墙若询问，请允许局域网访问（同步与 WiFi 按键使用端口 **8766**）。
+继续使用 v1.0.1beta 的 `PingerSettings-v1.0.1beta-windows-x64.zip` 即可（端口 **8766**）。
 
 ## 第一次使用（蓝牙，最常用）
 
@@ -73,7 +79,7 @@
 | **发送到手机** | 电脑上的排版 + 快捷键 → 手机 |
 | **从手机获取** | 手机当前配置 → 电脑 |
 
-手机上也可直接进入布局编辑、快捷键编辑；快捷键页顶部有**按键对应图**（真实皮肤 + T1/E1 等序号），方便对照设置。
+手机上也可直接进入布局编辑、快捷键编辑。
 
 ## 手势
 
@@ -92,16 +98,10 @@
 Get-FileHash .\文件名 -Algorithm SHA256
 ```
 
-**Pinger-v1.0.1beta.apk**
+**Pinger-v1.0.2beta.apk**
 
 ```
-f12ffad0aed2d3e3e76ce1085c9fece9e7a5192fafe44f48c16f8f285ecafe66
-```
-
-**PingerSettings-v1.0.1beta-windows-x64.zip**
-
-```
-fa7f2ae8e383aa82e6d3e50bcc523fd172eb66200103d36c1dd8321f439746a5
+a71b03ce071766dd91036e3c45546e728fd898d371925d7ceae08fab36a21fd1
 ```
 
 ## 链接
@@ -127,88 +127,54 @@ Turn an Android phone into a shortcut pad for Photoshop, editors, and similar ap
 
 **Download** [Website](https://www.aitocg.cn/pinger) · [GitHub Releases](https://github.com/Miatoo/pinger/releases)
 
+## What's new (vs v1.0.1beta)
+
+- Spec skin captions centered; D-pad labels aligned
+- Shortcut editor: D-pad expands to four bindings (D1–D4)
+- Layout editor: captions, hit targets, and fader fills follow move / scale / rotate
+- Knob needle stays on-center after layout rotation
+- Brutal / Paper hit zones aligned; compact layout toolbar
+- iOS: connected-but-no-keys fix (keyboard-only descriptor)
+- New presets: Procreate (iPad), CapCut Pro, After Effects, CLIP STUDIO v2
+
 ## What to download
 
 | File | Where | Purpose |
 | --- | --- | --- |
-| **Pinger-v1.0.1beta.apk** | Android phone | Main app (required) |
-| **PingerSettings-v1.0.1beta-windows-x64.zip** | Windows PC | Edit layouts / shortcuts & sync; Wi-Fi key injection (optional) |
+| **Pinger-v1.0.2beta.apk** | Android phone | Main app (required) |
 | **SHA256SUMS.txt** | — | Checksums (optional) |
 
-> **Recommended**: phone APK + Bluetooth only. Install Pinger Settings only if Bluetooth HID fails, or you need Wi-Fi mode / desktop editing.
+> Phone APK + Bluetooth is enough for most users. Desktop **Pinger Settings** is not rebuilt in this package — keep using the [v1.0.1beta](../v1.0.1beta/) Settings zip if needed.
 
 ## Known limits
 
 | Symptom | Cause | Fix |
 | --- | --- | --- |
-| HID registration fails on some phones | Incomplete Bluetooth HID support (common on some Chinese ROMs) | Switch to Wi-Fi mode |
-| Voice (MIC) not working | Voice over the Bluetooth channel is still in progress | Do not rely on the MIC key in this build |
-| Windows shows "phone" after pairing | Pairing is not the same as connecting the keyboard channel | Tap **Connect keyboard** in the app |
+| HID registration fails on some phones | Incomplete Bluetooth HID support | Switch to Wi-Fi mode |
+| Voice (MIC) not working | Still in progress on Bluetooth | Do not rely on MIC in this build |
+| Windows shows "phone" after pairing | Pairing ≠ keyboard channel | Tap **Connect keyboard** in the app |
 
 ## Install
 
-**Phone:** install `Pinger-v1.0.1beta.apk` (allow unknown sources). Grant Bluetooth access; landscape orientation is recommended.
+**Phone:** install `Pinger-v1.0.2beta.apk` (allow unknown sources). Grant Bluetooth; landscape recommended.
 
-**Windows (optional):** unzip `PingerSettings-v1.0.1beta-windows-x64.zip` and run `PingerSettings.exe` (portable, bundled runtime). Allow LAN access on port **8766** if prompted.
+**Windows (optional):** reuse `PingerSettings-v1.0.1beta-windows-x64.zip` from the previous release (port **8766**).
 
 ## First use (Bluetooth)
 
-1. Two-finger **swipe right** → Status panel.
-2. Pick the host platform: Win / Mac / iPad / Android.
+1. Two-finger **swipe right** → Status.
+2. Pick host: Win / Mac / iPad / Android.
 3. **Register HID** → **Discoverable**.
-4. Pair from the computer / tablet Bluetooth settings (use the name shown on the Status page).
+4. Pair from the computer / tablet.
 5. On the phone: **paired host** → **Connect keyboard**.
-6. Once it says connected, test in Notepad or Photoshop.
-
-> **If it won't connect**: remove the old Bluetooth entry on the computer → register HID / make discoverable again → pair → **Connect keyboard** again.
-
-## Wi-Fi mode (optional)
-
-1. Phone and PC on the same Wi-Fi network.
-2. Open **Pinger Settings** on the PC.
-3. Phone Status → **Wi-Fi** → enter the PC IP → connect.
-4. Keys are sent over `ws://PC-IP:8766` and injected by the desktop app.
-
-## Layout & shortcuts
-
-1. Open **Pinger Settings** and note the local IP shown at the top.
-2. Enter that IP on the phone Status page (sync connects automatically).
-3. Use Sync on the PC:
-
-| Action | Direction |
-| --- | --- |
-| **Send to phone** | PC layout + shortcuts → phone |
-| **Fetch from phone** | Current phone config → PC |
-
-You can also edit layout and shortcuts directly on the phone. The shortcut page includes a **key map** (real skin with codes such as T1/E1) for reference.
-
-## Gestures
-
-| Gesture | Action |
-| --- | --- |
-| Two-finger swipe right | Status (connection, IP, host) |
-| Two-finger swipe left | Presets |
-| Two-finger swipe up | Edit (skin, layout, about) |
-| Hold top / side key, then turn the knob or tap another key | Combo layer |
+6. Test in Notepad or Photoshop.
 
 ## SHA256
 
-Full list in `SHA256SUMS.txt`. Verify on PowerShell:
-
-```powershell
-Get-FileHash .\filename -Algorithm SHA256
-```
-
-**Pinger-v1.0.1beta.apk**
+**Pinger-v1.0.2beta.apk**
 
 ```
-f12ffad0aed2d3e3e76ce1085c9fece9e7a5192fafe44f48c16f8f285ecafe66
-```
-
-**PingerSettings-v1.0.1beta-windows-x64.zip**
-
-```
-fa7f2ae8e383aa82e6d3e50bcc523fd172eb66200103d36c1dd8321f439746a5
+a71b03ce071766dd91036e3c45546e728fd898d371925d7ceae08fab36a21fd1
 ```
 
 ## Links
