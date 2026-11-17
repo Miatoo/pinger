@@ -1,4 +1,6 @@
 <a id="top"></a>
+<img width="1084" height="626" alt="image" src="https://github.com/user-attachments/assets/0819e937-07b3-426e-99dc-c3208efaef65" />
+
 <a id="zh"></a>
 
 # Pinger · v1.0.3beta
