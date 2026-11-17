@@ -1,117 +1,120 @@
 <a id="top"></a>
 <a id="zh"></a>
 
-# Pinger v1.0.2beta
+# Pinger · v1.0.3beta
 
-把 Android 手机变成一块「快捷键面板」：在 Photoshop、剪辑等软件里，用手机按键、旋钮代替键盘快捷键。
+把 Android 手机变成一块「快捷键面板」：在 Photoshop、剪辑软件里，用手机按键、旋钮代替键盘快捷键。
 
 **语言** [中文](#zh) · [English](#en)
 
-**下载** [官网](https://www.aitocg.cn/pinger) · [GitHub Releases](https://github.com/Miatoo/pinger/releases)
+下载与更新：[www.aitocg.cn/pinger](https://www.aitocg.cn/pinger)  
+安装包也可在 GitHub [Releases](https://github.com/Miatoo/pinger/releases) 下载。
 
-## 本版更新（相对 v1.0.1beta）
+---
 
-- Spec 皮肤按键文字居中；十字键四向标签对齐
-- 快捷键设置：十字键展开为 D1–D4 四个独立绑定（与四向文字一致）
-- 布局编辑：移动 / 缩放 / 旋转后，文字、触控与滑条填充跟随键体
-- 旋钮布局旋转后，指针仍绕正确中心转动
-- 粗野 / 纸白等皮肤命中区与视觉对齐；布局工具栏更紧凑
-- iOS：已连但不出字问题（键盘-only 描述符，不再发 gamepad 报告）
-- 新增预设：Procreate (iPad)、剪映专业版、After Effects、CLIP STUDIO v2
+## 你需要下载什么
 
-## 下载哪个文件
+| 软件 | 装在哪 | 干什么 |
+|--|--|--|
+| **Pinger**（手机 APK） | Android 手机 | 主界面，真正操作按键 |
+| **Pinger Settings**（电脑便携版，可选） | Windows 电脑 | ① 改排版 / 快捷键并同步到手机<br>② 手机走 **WiFi 模式**时，在电脑上代为按键 |
 
-| 文件 | 装在哪 | 说明 |
-| --- | --- | --- |
-| **Pinger-v1.0.2beta.apk** | Android 手机 | 主程序（必装） |
-| **SHA256SUMS.txt** | — | 安装包校验码（可选） |
+日常最常用：**只装手机 Pinger + 蓝牙连电脑**，不必装电脑端。  
+蓝牙不好用时：再装 **Pinger Settings**，手机切到 WiFi 即可（**不必再单独装别的伴生程序**）。
 
-> **推荐**：只装手机 APK，用蓝牙连电脑。
->
-> 电脑端 **Pinger Settings**（改排版 / WiFi）本包未重打；可继续使用 [v1.0.1beta](../v1.0.1beta/) 的 Settings zip。
+---
 
-## 先看：已知限制
+## 本软件用到哪些系统能力（请知晓）
 
-| 现象 | 说明 | 处理 |
-| --- | --- | --- |
-| 部分国产手机注册 HID 失败 | 对「蓝牙 HID 键盘」支持不完整 | 改用 WiFi 模式 |
-| 语音（MIC）不可用 | 蓝牙通道下的语音仍在完善 | 本版本请勿强依赖 MIC 键 |
-| Windows 配对后显示「手机」 | 配对不等于连上键盘通道 | 回 App 内再点「连键盘」 |
+| 场景 | 实际调用 / 通道 | 白话解释 |
+|--|--|--|
+| 蓝牙模式（推荐入门） | Android **蓝牙 HID 键盘**（`BluetoothHidDevice`） | 手机对电脑来说就像一块无线键盘 |
+| WiFi 模式 | 手机连 **`ws://电脑IP:8766`** → **Pinger Settings** | 按键与同步共用同一端口；电脑端在前台软件里代按 |
+| 改排版 / 改快捷键同步 | 同上 **`ws://电脑IP:8766`** → **Pinger Settings** | 传布局和预设；与 WiFi 按键同一连接入口 |
+| 语音（MIC） | 系统语音识别 | **蓝牙端仍在构建，暂时不能用**；WiFi 模式后续可用 |
+| 宿主类型 | App 内选 **Win / Mac / iPad / 安卓** | Mac、iPad 会把快捷键里的 Ctrl 自动改成 Cmd |
 
-## 安装
+> **注意：** 蓝牙模式依赖手机是否完整支持「蓝牙 HID」。部分国产手机可能注册失败，可改用 WiFi 模式（需打开电脑端 Pinger Settings）。  
+> **已知限制：** 蓝牙通道下的语音识别功能还在开发中，本版本请勿依赖 MIC 键。
 
-### 手机（Pinger）
+---
 
-1. 把 `Pinger-v1.0.2beta.apk` 传到手机并安装（需允许「未知来源」）。
-2. 若之前装过旧版，可直接覆盖；若提示签名冲突，先卸载旧版再装。
-3. 打开 App，允许**蓝牙**权限；建议**横屏**使用。
+## 第一次使用：蓝牙连电脑（最常用）
 
-### 电脑（Pinger Settings，可选）
+适合：Windows / Mac / iPad / 安卓平板，不想在电脑上再装东西。
 
-继续使用 v1.0.1beta 的 `PingerSettings-v1.0.1beta-windows-x64.zip` 即可（端口 **8766**）。
+### 手机上
 
-## 第一次使用（蓝牙，最常用）
+1. 安装并打开 **Pinger**，按提示允许**蓝牙**权限。  
+2. 手机**横屏**使用。  
+3. **两指从右往左滑**，打开「状态」面板。（两指左滑是预设，两指上滑是编辑。）  
+4. 在「宿主平台」里选对：**Win / Mac / iPad / 安卓**。  
+5. 点 **注册 HID**（把手机注册成蓝牙键盘）。  
+6. 看清面板上的 **宿主搜索名**（多数是手机蓝牙名，不一定叫 Pinger）。  
+7. 点 **可被发现**，允许系统弹窗。
 
-1. 手机两指**右滑**，打开「状态」面板。
-2. 选择宿主平台：**Win / Mac / iPad / 安卓**。
-3. 点 **注册 HID** → **可被发现**。
-4. 在电脑 / 平板蓝牙里搜索并配对（名字以状态页「宿主搜索名」为准）。
-5. 回到手机 → **已配对主机** → **连键盘**。
-6. 显示「键盘已连」后，打开记事本或 PS 试按。
+### 电脑 / 平板上
 
-> **连不上时**：删掉电脑上的旧蓝牙设备 → 手机重新「注册 HID」/「可被发现」 → 再配对 → 再「连键盘」。
+1. 打开系统蓝牙，搜索并配对上面那个**搜索名**。  
+   - **Windows：** 设置 → 蓝牙 → 添加设备  
+   - **Mac：** 系统设置 → 蓝牙  
+   - **iPad / 安卓平板：** 系统蓝牙列表里选同一名字  
+2. **Windows 特别说明：** 配对后可能仍显示「手机 / 个人区域网」，正常——还没连上「键盘通道」。  
+3. 回到手机状态面板 → **已配对主机** → 找到你的电脑 → 点 **连键盘**。  
+4. 手机显示「键盘已连」后，打开记事本或 PS 试按。  
+5. 若宿主是 **Mac / iPad**，确认状态页已选对应平台，否则 Ctrl/Cmd 会对不上。
 
-## WiFi 模式（可选）
+### 连不上时
 
-1. 手机与电脑连同一 WiFi。
-2. 打开电脑端 **Pinger Settings**。
-3. 手机状态面板切到 **WiFi**，填入电脑显示的本机 IP → 连接。
-4. 按键经 `ws://电脑IP:8766` 由电脑端代发。
+- 在电脑蓝牙里删掉旧设备，手机重新「注册 HID」→「可被发现」→ 再配对 → 再「连键盘」。  
+- 搜不到「Pinger」：搜状态面板里写的名字；也可在系统蓝牙设置把手机改名为 `Pinger`。
 
-## 改排版 / 快捷键
+---
 
-1. 打开 **Pinger Settings**，记下顶部本机 IP。
-2. 手机状态页填入该 IP（自动连同步）。
-3. 电脑「同步」按方向操作：
+## 可选：WiFi 模式（用电脑端代按键）
 
-| 操作 | 方向 |
-| --- | --- |
-| **发送到手机** | 电脑上的排版 + 快捷键 → 手机 |
-| **从手机获取** | 手机当前配置 → 电脑 |
+适合：蓝牙 HID 不可用，或你更习惯局域网。
 
-手机上也可直接进入布局编辑、快捷键编辑。
+1. 电脑与手机连**同一个 WiFi**。  
+2. 打开 **Pinger Settings**（自动监听 **8766**：同步 + WiFi 按键）。  
+3. 手机状态面板把通道切到 **WiFi**，填入电脑顶部显示的 **本机 IP**。  
+4. 点「连接电脑（WiFi）」；手机按键经 **`ws://电脑IP:8766`** 发到电脑端代按。
 
-## 手势
+> 蓝牙模式**不需要**开电脑端。  
+> WiFi 模式**只要打开 Pinger Settings** 即可。电脑若显示「手机已连接」而手机仍失败，请确认手机与电脑用的是同一 IP，并重装最新手机 APK。
 
-| 手势 | 作用 |
-| --- | --- |
-| 两指右滑 | 状态（连接、IP、宿主） |
-| 两指左滑 | 预设列表 |
-| 两指上滑 | 编辑（皮肤、布局、关于） |
-| 按住顶部 / 侧键，再拧旋钮或点其他键 | 组合层 |
+---
 
-## 校验码（SHA256）
+## 可选：用电脑改排版和快捷键
 
-完整列表见同目录 `SHA256SUMS.txt`。PowerShell 核对：
+1. 打开 **Pinger Settings**（同步服务端口 **8766** 也会自动开）。  
+2. 记下软件顶部的**本机 IP**。  
+3. 手机状态面板填入这个 IP（会自动连同步）。  
+4. 电脑「同步」页：  
+   - **发送到手机**：把电脑上的排版 + 快捷键发到手机  
+   - **从手机获取**：把手机当前界面和快捷键读回电脑  
 
-```powershell
-Get-FileHash .\文件名 -Algorithm SHA256
-```
+> 同步与 WiFi 按键都走 **8766**，同一套 Pinger Settings。
 
-**Pinger-v1.0.2beta.apk**
+---
 
-```
-a71b03ce071766dd91036e3c45546e728fd898d371925d7ceae08fab36a21fd1
-```
+## 面板怎么滑、怎么按
 
-## 链接
+| 手势 / 操作 | 作用 |
+|--|--|
+| 两指右滑 | 打开状态（连接、IP、宿主） |
+| 两指左滑 | 打开预设列表 |
+| 两指上滑 | 打开编辑（皮肤、布局、关于） |
+| 按住顶部 / 侧键不放，再拧旋钮或点别的键 | 组合键（类似实体 Pinger） |
 
-| 项目 | 地址 |
-| --- | --- |
-| 官网 | [www.aitocg.cn/pinger](https://www.aitocg.cn/pinger) |
-| GitHub | [Miatoo/pinger](https://github.com/Miatoo/pinger) |
-| 小红书 | 毛桃moatoa |
-| 开源协议 | MIT |
+---
+
+## 作者与协议
+
+- 工具网址：[www.aitocg.cn/pinger](https://www.aitocg.cn/pinger)  
+- GitHub：[Miatoo/pinger](https://github.com/Miatoo/pinger)  
+- 作者小红书：毛桃moatoa  
+- 开源协议：[MIT License](LICENSE)
 
 [↑ 回到顶部](#top)
 
@@ -123,66 +126,114 @@ a71b03ce071766dd91036e3c45546e728fd898d371925d7ceae08fab36a21fd1
 
 [中文](#zh) · **English**
 
-Turn an Android phone into a shortcut pad for Photoshop, editors, and similar apps.
+Turn an Android phone into a shortcut pad: use keys and knobs instead of keyboard shortcuts in Photoshop, editors, and similar apps.
 
 **Download** [Website](https://www.aitocg.cn/pinger) · [GitHub Releases](https://github.com/Miatoo/pinger/releases)
 
-## What's new (vs v1.0.1beta)
-
-- Spec skin captions centered; D-pad labels aligned
-- Shortcut editor: D-pad expands to four bindings (D1–D4)
-- Layout editor: captions, hit targets, and fader fills follow move / scale / rotate
-- Knob needle stays on-center after layout rotation
-- Brutal / Paper hit zones aligned; compact layout toolbar
-- iOS: connected-but-no-keys fix (keyboard-only descriptor)
-- New presets: Procreate (iPad), CapCut Pro, After Effects, CLIP STUDIO v2
+---
 
 ## What to download
 
-| File | Where | Purpose |
-| --- | --- | --- |
-| **Pinger-v1.0.2beta.apk** | Android phone | Main app (required) |
-| **SHA256SUMS.txt** | — | Checksums (optional) |
+| App | Where | Purpose |
+|--|--|--|
+| **Pinger** (phone APK) | Android phone | Main UI — the keys you press |
+| **Pinger Settings** (Windows portable, optional) | Windows PC | ① Edit layout / shortcuts and sync to the phone<br>② Inject keys when the phone uses **Wi‑Fi mode** |
 
-> Phone APK + Bluetooth is enough for most users. Desktop **Pinger Settings** is not rebuilt in this package — keep using the [v1.0.1beta](../v1.0.1beta/) Settings zip if needed.
+Most users only need **phone Pinger + Bluetooth**.  
+If Bluetooth HID fails, install **Pinger Settings** and switch the phone to Wi‑Fi (no other companion app required).
 
-## Known limits
+---
 
-| Symptom | Cause | Fix |
-| --- | --- | --- |
-| HID registration fails on some phones | Incomplete Bluetooth HID support | Switch to Wi-Fi mode |
-| Voice (MIC) not working | Still in progress on Bluetooth | Do not rely on MIC in this build |
-| Windows shows "phone" after pairing | Pairing ≠ keyboard channel | Tap **Connect keyboard** in the app |
+## System capabilities used
 
-## Install
+| Scenario | Channel | Plain English |
+|--|--|--|
+| Bluetooth (recommended) | Android **Bluetooth HID keyboard** (`BluetoothHidDevice`) | The phone appears as a wireless keyboard |
+| Wi‑Fi mode | Phone → **`ws://PC-IP:8766`** → **Pinger Settings** | Keys and sync share the same port; the PC injects keystrokes |
+| Layout / shortcut sync | Same **`ws://PC-IP:8766`** → **Pinger Settings** | Push / pull layouts and presets |
+| Voice (MIC) | System speech recognition | **Not ready on Bluetooth yet**; Wi‑Fi path comes later |
+| Host type | In-app: **Win / Mac / iPad / Android** | Mac / iPad map Ctrl → Cmd in shortcuts |
 
-**Phone:** install `Pinger-v1.0.2beta.apk` (allow unknown sources). Grant Bluetooth; landscape recommended.
+> **Note:** Bluetooth needs full HID keyboard support. Some phones fail to register — use Wi‑Fi mode with Pinger Settings.  
+> **Known limit:** Do not rely on the MIC key in this beta.
 
-**Windows (optional):** reuse `PingerSettings-v1.0.1beta-windows-x64.zip` from the previous release (port **8766**).
+---
 
-## First use (Bluetooth)
+## First use: Bluetooth (most common)
 
-1. Two-finger **swipe right** → Status.
-2. Pick host: Win / Mac / iPad / Android.
-3. **Register HID** → **Discoverable**.
-4. Pair from the computer / tablet.
-5. On the phone: **paired host** → **Connect keyboard**.
-6. Test in Notepad or Photoshop.
+For Windows / Mac / iPad / Android tablets — no desktop app required.
 
-## SHA256
+### On the phone
 
-**Pinger-v1.0.2beta.apk**
+1. Install **Pinger** and allow **Bluetooth**.  
+2. Use **landscape**.  
+3. **Two-finger swipe right → left** opens Status. (Swipe left = presets; swipe up = edit.)  
+4. Set host: **Win / Mac / iPad / Android**.  
+5. Tap **Register HID**.  
+6. Note the **discoverable name** (often the phone Bluetooth name, not always “Pinger”).  
+7. Tap **Discoverable** and accept the system prompt.
 
-```
-a71b03ce071766dd91036e3c45546e728fd898d371925d7ceae08fab36a21fd1
-```
+### On the computer / tablet
 
-## Links
+1. Pair that **discoverable name** in system Bluetooth.  
+   - **Windows:** Settings → Bluetooth → Add device  
+   - **Mac:** System Settings → Bluetooth  
+   - **iPad / Android tablet:** pick the same name  
+2. **Windows:** after pairing it may still say “phone / PAN” — normal; the keyboard channel is not connected yet.  
+3. Back on the phone → **Paired hosts** → your PC → **Connect keyboard**.  
+4. When it says keyboard connected, test in Notepad or Photoshop.  
+5. For **Mac / iPad**, confirm the host type on the Status page so Ctrl/Cmd match.
 
-| Item | URL |
-| --- | --- |
-| Website | [www.aitocg.cn/pinger](https://www.aitocg.cn/pinger) |
-| GitHub | [Miatoo/pinger](https://github.com/Miatoo/pinger) |
-| License | MIT |
+### If it won’t connect
+
+- Remove the old Bluetooth device on the PC, then phone: **Register HID** → **Discoverable** → pair → **Connect keyboard** again.  
+- Can’t find “Pinger”: search the name shown on Status, or rename the phone to `Pinger` in system Bluetooth settings.
+
+---
+
+## Optional: Wi‑Fi mode
+
+When Bluetooth HID is unavailable, or you prefer LAN.
+
+1. Phone and PC on the **same Wi‑Fi**.  
+2. Open **Pinger Settings** (listens on **8766**: sync + Wi‑Fi keys).  
+3. On the phone Status panel, switch to **Wi‑Fi** and enter the PC IP shown at the top.  
+4. Tap **Connect (Wi‑Fi)**; keys go via **`ws://PC-IP:8766`**.
+
+> Bluetooth does **not** need the desktop app.  
+> Wi‑Fi only needs **Pinger Settings**. If the PC shows “phone connected” but the phone fails, confirm the same IP and reinstall the latest APK.
+
+---
+
+## Optional: edit layout & shortcuts on PC
+
+1. Open **Pinger Settings** (sync on **8766** starts automatically).  
+2. Note the **local IP** at the top.  
+3. Enter that IP on the phone Status panel (sync connects automatically).  
+4. On the PC Sync page:  
+   - **Send to phone** — push layout + shortcuts to the phone  
+   - **Get from phone** — pull the phone’s current setup  
+
+> Sync and Wi‑Fi keys both use **8766** via Pinger Settings.
+
+---
+
+## Gestures
+
+| Gesture | Action |
+|--|--|
+| Two-finger swipe right | Status (connection, IP, host) |
+| Two-finger swipe left | Preset list |
+| Two-finger swipe up | Edit (skins, layout, about) |
+| Hold a top / side key, then turn a knob or tap another key | Combo layer (like a physical Pinger) |
+
+---
+
+## Author & license
+
+- Website: [www.aitocg.cn/pinger](https://www.aitocg.cn/pinger)  
+- GitHub: [Miatoo/pinger](https://github.com/Miatoo/pinger)  
+- Xiaohongshu: 毛桃moatoa  
+- License: [MIT License](LICENSE)
 
 [↑ Back to top](#top)
