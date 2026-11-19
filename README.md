@@ -3,7 +3,7 @@
 
 <a id="zh"></a>
 
-# Pinger · v1.0.3beta
+# Pinger · v1.0.4beta
 
 把 Android 手机变成一块「快捷键面板」：在 Photoshop、剪辑软件里，用手机按键、旋钮代替键盘快捷键。
 
@@ -12,17 +12,23 @@
 下载与更新：[www.aitocg.cn/pinger](https://www.aitocg.cn/pinger)  
 安装包也可在 GitHub [Releases](https://github.com/Miatoo/pinger/releases) 下载。
 
+## 本版要点
+
+- 修复 release 包 Wi‑Fi 明文被系统拦截（CLEARTEXT not permitted），局域网 `ws://` 可连
+- HID 注册增加 10 秒超时；不支持 HID Device 的机型会提示改用 Wi‑Fi 模式
+- Windows 端：解压 zip 后双击 **PingerSettings.exe**（自带运行库，会请求管理员权限）
+
 ---
 
 ## 你需要下载什么
 
 | 软件 | 装在哪 | 干什么 |
 |--|--|--|
-| **Pinger**（手机 APK） | Android 手机 | 主界面，真正操作按键 |
-| **Pinger Settings**（电脑便携版，可选） | Windows 电脑 | ① 改排版 / 快捷键并同步到手机<br>② 手机走 **WiFi 模式**时，在电脑上代为按键 |
+| **Pinger**（`Pinger-v1.0.4beta.apk`） | Android 手机 | 主界面，真正操作按键 |
+| **Pinger Settings**（`PingerSettings-Windows-portable-v1.0.4beta.zip`） | Windows 电脑 | ① 改排版 / 快捷键并同步<br>② WiFi 模式时代为按键 |
 
 日常最常用：**只装手机 Pinger + 蓝牙连电脑**，不必装电脑端。  
-蓝牙不好用时：再装 **Pinger Settings**，手机切到 WiFi 即可（**不必再单独装别的伴生程序**）。
+蓝牙不好用时：解压 Settings zip → 双击 **PingerSettings.exe** → 手机切 WiFi。
 
 ---
 
@@ -132,6 +138,11 @@ Turn an Android phone into a shortcut pad: use keys and knobs instead of keyboar
 
 **Download** [Website](https://www.aitocg.cn/pinger) · [GitHub Releases](https://github.com/Miatoo/pinger/releases)
 
+## Highlights
+
+- Fix: release builds blocked LAN cleartext (`ws://`) — Wi‑Fi mode works on Android 9+
+- HID register now times out after 10s and suggests switching to Wi‑Fi on unsupported ROMs
+
 ---
 
 ## What to download
@@ -239,3 +250,4 @@ When Bluetooth HID is unavailable, or you prefer LAN.
 - License: [MIT License](LICENSE)
 
 [↑ Back to top](#top)
+
